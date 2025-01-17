@@ -66,15 +66,15 @@ class ReportKegiatanController extends Controller
     }
     public function search(Request $request)
     {
-        // Get the search query from the request
+        
         $query = $request->input('query');
         
-        // Perform search in 'name' and 'deskripsi' columns
+        
         $reports = ReportKegiatan::where('name', 'like', "%$query%")
             ->orWhere('deskripsi', 'like', "%$query%")
             ->get();
 
-        // Return the results to the view
+  
         return view('index', compact('reports'));
     }
     
